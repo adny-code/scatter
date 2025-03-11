@@ -20,7 +20,6 @@ class scatter_item():
         self.direction_x = np.random.choice([-1, 1], nums)
         self.direction_y = np.random.choice([-1, 1], nums)
         self.speed = np.random.randint(3, 6, nums)
-        self.scatter_size = np.random.randint(200, 500, nums)
 
         # ocuppied index of pattern.
         self.line_and_taken = []
@@ -33,13 +32,17 @@ class scatter_item():
             if((self.x[i] > self.board_x_up) or (self.x[i] < self.board_x_l)):
                 self.direction_x[i] = - self.direction_x[i]
                 # if the scatter is still out of the board, move it back.
-                if (self.x[i] > self.board_x_up): self.x[i] -= 3
-                if (self.x[i] < self.board_x_up): self.x[i] += 3
+                if (self.x[i] > self.board_x_up): 
+                    self.x[i] -= 3
+                if (self.x[i] < self.board_x_up): 
+                    self.x[i] += 3
             if((self.y[i] > self.board_y_up) or (self.y[i] < self.board_y_l)):
                 self.direction_y[i] = - self.direction_y[i]
                 # if the scatter is still out of the board, move it back.
-                if (self.y[i] > self.board_y_up): self.y[i] -= 3
-                if (self.y[i] < self.board_y_up): self.y[i] += 3
+                if (self.y[i] > self.board_y_up): 
+                    self.y[i] -= 3
+                if (self.y[i] < self.board_y_up): 
+                    self.y[i] += 3
 
     """
     move the scatter in the plot.

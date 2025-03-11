@@ -13,13 +13,17 @@ word_line = excel_word.sahpe_to_line(excel_word.filename1)
 word_line1 = excel_word.sahpe_to_line(excel_word.filename2)
 word_line2 = excel_word.sahpe_to_line(excel_word.filename3)
 
+# number of scatter items.
 nums_scatter = 390
 
+# generate scatters object.
 scatter_500 = scatter_item(nums_scatter, 200, 100, -200, -100)
-size_numbers = list(np.random.randint(20, 600, nums_scatter)) # 20, 600 / 20, 400
+
+# generate scatters size.
+size_numbers = list(np.random.randint(20, 600, nums_scatter))
 
 def initial_plt():
-    fig = plt.figure(num='scatter_word',figsize=(16,8) ,dpi= 128,frameon=False)
+    fig = plt.figure(num='scatter_word', figsize=(16,8), dpi= 128, frameon = False)
     ax = fig.add_subplot(111)
     ax.set_autoscale_on(False)
     ax.set_xticks([-200, 200])
@@ -29,16 +33,19 @@ def initial_plt():
 
 def scatter_show(x, y):
     point_numbers = list(range(nums_scatter))
-    # 修改各参数获取更好的视觉效果
-    # marker是形状参数、alpha是透明度参数、
-    # cmap是色彩映射，其中plt.cm.Blues和plt.cm.Paired效果较好
-    # 其他的也有..Reds、..Greens等。
-    plt.scatter(x, y, c=point_numbers, marker= 'o', alpha= 0.8, # 0.7
-                cmap=plt.cm.Reds, edgecolors='none',
-                s=size_numbers)
-#     s=np.power(0.25*np.sqrt(np.power(x,2)+np.power(y,2), 2) / 问题是点的大小随之改变了
+    """
+    marker: shape of point
+    alpha: transparency of point
+    cmap: color of point
+    """
+    plt.scatter(x, y, c = point_numbers, marker = 'o', alpha = 0.8,
+                cmap = plt.cm.Reds, edgecolors = 'none',
+                s = size_numbers)
 
-def show_color(chose=1):
+"""
+calculate one frame of the plot.
+"""
+def show_color(chose = 1):
     global quit_program
     if chose == 1:
         ax = initial_plt()
@@ -56,7 +63,8 @@ def show_color(chose=1):
     scatter_show(scatter_500.x, scatter_500.y)
     scatter_500.on_board_or_not()
     scatter_500.move_scatter()
-    if (quit_program == 1): os._exit(0)
+    if (quit_program == 1): 
+        os._exit(0)
     plt.pause(0.01)
     plt.cla()
 
@@ -65,15 +73,17 @@ def spread_fast_to_slow(chose):
     global flag_of_start_and_stop
     global quit_program
     if chose == 1:
+        # change the speed of scatter from fast to slow in 5 frame.
         for i in range(5):
-            for j in range(15+i*1):
-                scatter_500.spread(4-i)
+            for j in range(15 + i * 1):
+                scatter_500.spread(4 - i)
                 ax = initial_plt()
                 ax.set_title('CHINA')
                 scatter_show(scatter_500.x, scatter_500.y)
                 scatter_500.on_board_or_not()
                 scatter_500.move_scatter()
-                if (quit_program == 1): os._exit(0)
+                if (quit_program == 1): 
+                    os._exit(0)
                 if (flag_of_start_and_stop == 0):
                     flag_of_start_and_stop = 1
                     sleep(15)
@@ -81,14 +91,15 @@ def spread_fast_to_slow(chose):
                 plt.cla()
     if chose == 2:
         for i in range(5):
-            for j in range(15+i*1): # 20 + i*2
+            for j in range(15 + i * 1):
                 scatter_500.spread(4 - i)
                 ax = initial_plt()
                 ax.set_title('CHINA NO.1')
                 scatter_show(scatter_500.x, scatter_500.y)
                 scatter_500.on_board_or_not()
                 scatter_500.move_scatter()
-                if (quit_program == 1): os._exit(0)
+                if (quit_program == 1): 
+                    os._exit(0)
                 if (flag_of_start_and_stop == 0):
                     flag_of_start_and_stop = 1
                     sleep(15)
@@ -96,14 +107,15 @@ def spread_fast_to_slow(chose):
                 plt.cla()
     if chose == 3:
         for i in range(5):
-            for j in range(15+i*1):
+            for j in range(15 + i * 1):
                 scatter_500.spread(4 - i)
                 ax = initial_plt()
                 ax.set_title('I LOVE CHIAN')
                 scatter_show(scatter_500.x, scatter_500.y)
                 scatter_500.on_board_or_not()
                 scatter_500.move_scatter()
-                if (quit_program == 1): os._exit(0)
+                if (quit_program == 1): 
+                    os._exit(0)
                 if (flag_of_start_and_stop == 0):
                     flag_of_start_and_stop = 1
                     sleep(15)

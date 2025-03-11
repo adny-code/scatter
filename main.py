@@ -29,16 +29,19 @@ def main():
     global button1
     size = plt.axes([0.68, 0.015, 0.13, 0.06])
     button1 = Button(size, 'stop')
+    # register button.
     button1.on_clicked(button_press)
 
     global button2
     size2 = plt.axes([0.05, 0.015, 0.6, 0.06])
-    button2 = Button(size2, 'Click "stop" will freeze the plot for 15 seconds. (NOTICE: When the plot was frozen, Please do not click the "stop" button.\n Otherwise, the program may go wrong. But if you would like to wait for a minutes, it will resume.)')
+    button2 = Button(size2, 'click quit to exit')
+    # register button.
     button2.on_clicked(button_press2)
 
     global button3
     size = plt.axes([0.84, 0.015, 0.13, 0.06])
     button3 = Button(size, 'quit')
+    # register button.
     button3.on_clicked(button_press3)
 
     count = 0
@@ -51,7 +54,8 @@ def main():
                 sleep(15)
 
             count += 1
-            if count > 300: # 200比较好，能合成比较好的图
+            # the frame of one round.
+            if count > 300:
                 count = 0
                 break
         figshow.scatter_500.line_and_taken = []
@@ -65,7 +69,8 @@ def main():
                 sleep(15)
 
             count += 1
-            if count > 300:  # 200比较好，能合成比较好的图
+            # the frame of one round.
+            if count > 300:
                 count = 0
                 break
         figshow.scatter_500.line_and_taken = []
@@ -79,16 +84,15 @@ def main():
                 sleep(15)
 
             count += 1
-            if count > 300:  # 200比较好，能合成比较好的图
+            # the frame of one round.
+            if count > 300: 
                 count = 0
                 break
         figshow.scatter_500.line_and_taken = []
         figshow.spread_fast_to_slow(3)
 
 
-
-
-@register                           # 调用register函数，在退出前执行 atexit()
+@register 
 def atexit():
      print('all done at:' + ctime())
 
