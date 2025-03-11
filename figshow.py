@@ -10,10 +10,9 @@ flag_of_start_and_stop = 1
 quit_program = 0
 
 word_line = excel_word.sahpe_to_line(excel_word.filename1)
-excel_word.wordinline = []
 word_line1 = excel_word.sahpe_to_line(excel_word.filename2)
-excel_word.wordinline = []
 word_line2 = excel_word.sahpe_to_line(excel_word.filename3)
+
 nums_scatter = 390
 
 scatter_500 = scatter_item(nums_scatter, 200, 100, -200, -100)
