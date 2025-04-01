@@ -16,7 +16,7 @@ root
 python -u main.py
 
 # NOTE
-recommend python 3.6.13
+recommend python 3.6.13, some plot libraries in higher versions of Python operate too slowly for unknown reasons.
 
 # TODO
 - read shape from image.
